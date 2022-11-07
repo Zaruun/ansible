@@ -5,6 +5,7 @@
 
   tasks:
     - include: tasks/core-tools.yml
+    - include: tasks/python.yml
     - include: tasks/node.yml
     - include: tasks/nvim.yml
     - include: tasks/zsh.yml
