@@ -1,0 +1,5 @@
+- name: Clean-up - Clear {{ dirDownload }}...
+  become: true
+  file:
+    path: "{{ dirDownload }}"
+    state: absent

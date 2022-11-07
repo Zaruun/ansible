@@ -1,0 +1,12 @@
+- hosts: localhost
+  vars:
+    username: zaruun
+    dirDownload: /home/{{ username }}/ConfigDownload
+
+  tasks:
+    - include: tasks/core-tools.yml
+    - include: tasks/node.yml
+    - include: tasks/nvim.yml
+    - include: tasks/zsh.yml
+    - include: tasks/clean-up.yml
+      
