@@ -3,42 +3,47 @@
   apt:
     update_cache: yes
 
-- name: core-tools - Install wget... 
+- name: core-tools - Install wget...
   become: true
   apt:
     name: wget
 
-- name: core-tools - Install curl... 
+- name: core-tools - Install curl...
   become: true
   apt:
     name: curl
 
-- name: core-tools - Install git... 
+- name: core-tools - Install git...
   become: true
   apt:
     name: git
 
-- name: core-tools - Install htop... 
+- name: core-tools - Install htop...
   become: true
   apt:
     name: htop
 
-- name: core-tools - Install tmux... 
+- name: core-tools - Install tmux...
   become: true
   apt:
     name: tmux
 
-- name: core-tools - Install neofetch... 
+- name: core-tools - Install neofetch...
   become: true
   apt:
     name: neofetch
 
-- name: core-tools - Install mc... 
+- name: core-tools - Install mc...
   become: true
   apt:
     name: mc
 
-- name: core-tools - Install cmake make gcc clang... 
+- name: core-tools - Install xclip...
   become: true
   apt:
-    name: ["cmake", "make", "gcc", "clang"]
+    name: xclip
+
+- name: core-tools - Install cmake make gcc clang g++...
+  become: true
+  apt:
+    name: ["cmake", "make", "gcc", "clang", "g++"]
