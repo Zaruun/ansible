@@ -43,7 +43,7 @@
   apt:
     name: xclip
 
-- name: core-tools - Install cmake make gcc clang g++...
+- name: core-tools - Install cmake make gcc clang g++ cargo...
   become: true
   apt:
-    name: ["cmake", "make", "gcc", "clang", "g++"]
+    name: ["cmake", "make", "gcc", "clang", "g++", "cargo"]

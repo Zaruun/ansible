@@ -10,4 +10,3 @@
     - include: tasks/nvim.yml
     - include: tasks/zsh.yml
     - include: tasks/clean-up.yml
-      

@@ -1,0 +1,42 @@
+- name: Creates directory {{ dirDownload }}...
+  file:
+    path: "{{ dirDownload }}"
+    state: directory
+
+- name: NodeJS - Getting node v18...
+  become: false
+  get_url: 
+    url: https://nodejs.org/dist/v18.12.0/node-v18.12.0-linux-x64.tar.xz
+    dest: "{{ dirDownload }}/node-v18.12.0-linux-x64.tar.xz"
+
+- name: NodeJS - Unarchive {{ dirDownload }}/node-v18.12.0-linux-x64.tar.xz...
+  become: false
+  unarchive:
+    src: "{{ dirDownload }}/node-v18.12.0-linux-x64.tar.xz"
+    dest: "{{ dirDownload }}"
+    remote_src: yes
+
+- name: NodeJS - Copy NodeJS lib to /usr...
+  become: true
+  shell: cp -r {{ dirDownload }}/node-v18.12.0-linux-x64/lib /usr
+
+- name: NodeJS - Copy NodeJS share to /usr...
+  become: true
+  shell: cp -r {{ dirDownload }}/node-v18.12.0-linux-x64/share /usr
+
+- name: NodeJS - Copy NodeJS include to /usr...
+  become: true
+  shell: cp -r {{ dirDownload }}/node-v18.12.0-linux-x64/include /usr
+
+- name: NodeJS - Copy NodeJS bin to /usr...
+  become: true
+  shell: cp -r {{ dirDownload }}/node-v18.12.0-linux-x64/bin /usr
+
+- name: NodeJS - Install tree-sitter-cli globaly...
+  become: true
+  shell: npm install -g tree-sitter-cli
+
+- name: NodeJS - Install npm...
+  become: true
+  apt:
+    name: npm
