@@ -47,3 +47,8 @@
   become: true
   apt:
     name: ["cmake", "make", "gcc", "clang", "g++", "cargo"]
+
+- name: Creates directory {{ dirDownload }}...
+  file:
+    path: "{{ dirDownload }}"
+    state: directory
